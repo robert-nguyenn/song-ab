@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACE-Step vs Suno — Blind A/B</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>ACE-Step vs Suno</h1>
+    <p class="subtitle">Blind A/B listening test. Pick which sounds better; reveal which is which only when you've decided.</p>
+  </header>
+
+  <section class="controls">
+    <button id="reveal-all" class="btn">Reveal all</button>
+    <button id="hide-all" class="btn btn-secondary">Hide all</button>
+    <span class="hint">Tip: use headphones.</span>
+  </section>
+
+  <section class="quick-preview">
+    <details>
+      <summary>Quick local preview (drag two audio files to compare without committing)</summary>
+      <div class="preview-body">
+        <input
+          type="text"
+          id="preview-prompt"
+          placeholder="(optional) prompt label for this preview"
+          autocomplete="off"
+        />
+        <div class="dropzones">
+          <div class="dropzone" id="drop-left">
+            <div class="drop-hint">Drop file 1 here</div>
+            <audio id="audio-left" controls></audio>
+          </div>
+          <div class="dropzone" id="drop-right">
+            <div class="drop-hint">Drop file 2 here</div>
+            <audio id="audio-right" controls></audio>
+          </div>
+        </div>
+        <p class="muted small">Local only — nothing is uploaded or saved.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="pairs-list" class="pairs">
+    <p class="loading">Loading pairs…</p>
+  </section>
+
+  <footer>
+    <p class="muted small">
+      Built for honest comparison. Sides are randomized per pair; click "Reveal" to see which is ACE-Step and which is Suno.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
