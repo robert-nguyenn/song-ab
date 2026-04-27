@@ -12,8 +12,11 @@
   </header>
 
   <section class="controls">
-    <button id="reveal-all" class="btn">Reveal all</button>
+    <button id="reveal-all" class="btn btn-secondary">Reveal all</button>
     <button id="hide-all" class="btn btn-secondary">Hide all</button>
+    <button id="publish" class="btn">Publish bundle</button>
+    <button id="clear-all" class="btn btn-ghost">Clear saved</button>
+    <span id="save-status" class="hint"></span>
   </section>
 
   <section id="pairs-list" class="pairs"></section>
@@ -70,6 +73,7 @@
     </article>
   </template>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

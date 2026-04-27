@@ -1,6 +1,9 @@
 .DS_Store
 Thumbs.db
+node_modules/
+.vercel/
+.env
+.env.local
+.vscode/
 *.wav
 *.flac
-node_modules/
-.vscode/

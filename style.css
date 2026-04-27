@@ -83,6 +83,33 @@ header h1 {
   background: var(--bg-elev);
 }
 
+.btn-ghost {
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+  color: var(--danger);
+}
+
+#save-status {
+  font-size: 13px;
+  margin-left: auto;
+}
+
+#save-status[data-kind="busy"] {
+  color: var(--accent);
+}
+
+#save-status[data-kind="ok"] {
+  color: var(--acestep);
+}
+
+#save-status[data-kind="error"] {
+  color: var(--danger);
+}
+
 .btn-add {
   background: transparent;
   color: var(--text);

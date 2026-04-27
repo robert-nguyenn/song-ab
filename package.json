@@ -1,0 +1,10 @@
+{
+  "name": "song-ab",
+  "version": "1.0.0",
+  "description": "Blind A/B player for ACE-Step vs Suno, deployed on Vercel with Vercel Blob storage.",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vercel/blob": "^0.27.0"
+  }
+}
