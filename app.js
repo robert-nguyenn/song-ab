@@ -59,13 +59,27 @@
     return _blobClientPromise;
   }
 
+  // Vercel Blob rejects pathnames with spaces / parens / other URL-unsafe
+  // characters with a 400. Sanitize but keep the file extension.
+  function sanitizePathname(name) {
+    const dot = name.lastIndexOf('.');
+    let base = dot > 0 ? name.slice(0, dot) : name;
+    let ext = dot > 0 ? name.slice(dot) : '';
+    base = base.replace(/[^a-zA-Z0-9._-]+/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+    ext = ext.replace(/[^a-zA-Z0-9.]+/g, '');
+    if (!base) base = 'audio';
+    return base + ext;
+  }
+
   async function uploadFile(file) {
     setStatus('Uploading ' + file.name + '…', 'busy');
+    const safeName = sanitizePathname(file.name);
     const { upload } = await blobClient();
-    const blob = await upload(file.name, file, {
+    const blob = await upload(safeName, file, {
       access: 'public',
       handleUploadUrl: '/api/upload',
     });
+    // Keep the original filename for display in the slot
     return { url: blob.url, name: file.name };
   }
 
